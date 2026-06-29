@@ -1,0 +1,1 @@
+Edge Terminal Codex prompt has been added. Start with CODEX_PROMPT.md or CODEX_TASK.md.
