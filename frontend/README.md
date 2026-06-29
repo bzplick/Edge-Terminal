@@ -1,0 +1,1 @@
+Frontend for Edge Terminal. React/Vite implementation should live here.
