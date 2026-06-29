@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Edge Terminal</title>
+  <style>
+    :root{--bg:#07101f;--panel:#101b30;--panel2:#0b1425;--line:#24334f;--txt:#edf3ff;--muted:#91a2c0;--g:#35d08a;--r:#ff4e79;--y:#ffd166;--b:#4ea1ff}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#07101f,#0b1322);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Arial,sans-serif}.wrap{max-width:1200px;margin:auto;padding:14px}.top{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.brand{font-size:26px;font-weight:900}.sub,.muted{color:var(--muted);font-size:13px}.pill{border:1px solid var(--line);border-radius:999px;padding:8px 12px;background:#0b1425}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:14px}.card{background:rgba(16,27,48,.96);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:0 12px 30px rgba(0,0,0,.2)}.s3{grid-column:span 3}.s4{grid-column:span 4}.s8{grid-column:span 8}.s12{grid-column:span 12}.label{text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-size:11px}.metric{font-size:28px;font-weight:900}.green{color:var(--g)}.red{color:var(--r)}.yellow{color:var(--y)}.blue{color:var(--b)}.tabs{display:flex;gap:8px;overflow:auto}.tab{border:1px solid var(--line);background:var(--panel2);color:var(--muted);border-radius:12px;padding:9px 12px;white-space:nowrap;cursor:pointer}.tab.active{background:#17305a;color:white;border-color:#2e65bb}input{width:220px;max-width:100%;border:1px solid var(--line);background:#0a1425;color:white;border-radius:10px;padding:10px}table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left}th{color:var(--muted);font-size:11px;text-transform:uppercase}.score{font-weight:900;border-radius:9px;padding:5px 8px;display:inline-block;min-width:42px;text-align:center}.a{background:rgba(53,208,138,.14);color:var(--g)}.b{background:rgba(255,209,102,.14);color:var(--y)}.c{background:rgba(255,78,121,.14);color:var(--r)}.box{background:#0b1425;border:1px solid var(--line);border-radius:12px;padding:10px}.plan{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px}.bar{height:8px;background:#0b1425;border-radius:999px;overflow:hidden}.bar>div{height:100%;background:linear-gradient(90deg,var(--b),var(--g))}.note{background:#0b1425;border:1px solid var(--line);padding:10px;border-radius:12px;margin-top:10px}.hidden{display:none}.footer{font-size:12px;color:var(--muted);margin:20px 0 8px}@media(max-width:850px){.s3,.s4,.s8{grid-column:span 12}.metric{font-size:23px}th:nth-child(4),td:nth-child(4),th:nth-child(8),td:nth-child(8){display:none}}@media(max-width:520px){.wrap{padding:10px}.card{padding:11px}.plan{grid-template-columns:1fr}.brand{font-size:22px}th,td{padding:9px 5px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="top">
+      <div><div class="brand">Edge Terminal</div><div class="sub">Don’t Dilute Me + Panic Reversal + Early Explosion scanners</div></div>
+      <div class="pill" id="clock">Demo mode</div>
+    </section>
+
+    <section class="grid">
+      <div class="card s3"><div class="label">Best setup</div><div class="metric green" id="bestTicker">INLF</div><div class="muted">Panic Reversal • 86 score</div></div>
+      <div class="card s3"><div class="label">A+ candidates</div><div class="metric">3</div><div class="muted">Score 80+</div></div>
+      <div class="card s3"><div class="label">Dilution alerts</div><div class="metric red">2</div><div class="muted">RS / ATM / S-1 flags</div></div>
+      <div class="card s3"><div class="label">Watchlist R:R</div><div class="metric blue">2.7:1</div><div class="muted">Median target 1 vs stop</div></div>
+
+      <div class="card s12"><div class="tabs"><button class="tab active" data-tab="scanner">Live Scanner</button><button class="tab" data-tab="plan">Trade Plan</button><button class="tab" data-tab="risk">Filing Risk</button><button class="tab" data-tab="next">Codex Next</button></div></div>
+
+      <section class="card s8 pane" id="scanner">
+        <div class="top" style="margin-bottom:10px"><div><div class="label">Ranked opportunities</div><div class="muted">Mock data first. Codex will wire real APIs with fallback.</div></div><input id="filter" placeholder="Filter ticker" /></div>
+        <table><thead><tr><th>#</th><th>Ticker</th><th>Scanner</th><th>Price</th><th>Move</th><th>RVOL</th><th>Score</th><th>Setup</th></tr></thead><tbody id="tbody"></tbody></table>
+      </section>
+
+      <aside class="card s4 pane" id="details">
+        <div class="label">Selected breakdown</div><h2 id="selName">INLF</h2>
+        <div class="box"><div class="muted">Conviction</div><div class="bar"><div id="convBar" style="width:86%"></div></div><div class="metric green" id="selScore">86</div></div>
+        <div class="plan"><div class="box"><div class="muted">Entry</div><b id="entry">0.058–0.064</b></div><div class="box"><div class="muted">Stop</div><b id="stop">0.050</b></div><div class="box"><div class="muted">Target 1</div><b id="t1">0.073</b></div><div class="box"><div class="muted">Target 2</div><b id="t2">0.085–0.10</b></div></div>
+        <div id="notes"></div>
+      </aside>
+
+      <section class="card s12 pane hidden" id="plan"><div class="label">Auto trade plan</div><div class="plan"><div class="box"><div class="muted">Entry rule</div><b>VWAP reclaim or higher-low hold</b></div><div class="box"><div class="muted">Profit rule</div><b>Scale 35–50% at target 1</b></div><div class="box"><div class="muted">Failure rule</div><b>Exit if support breaks on volume</b></div><div class="box"><div class="muted">Max hold</div><b>Same day unless above VWAP close</b></div></div></section>
+      <section class="card s12 pane hidden" id="risk"><div class="label">Filing risk flags</div><table><tbody><tr><td>ATM / S-1 / F-1 / 424B</td><td>Potential dilution</td><td>Reduce size or avoid overnight</td></tr><tr><td>Reverse split / Nasdaq notice</td><td>Listing compliance risk</td><td>Trade only, no investment hold</td></tr><tr><td>Going concern / convertibles</td><td>Financing pressure</td><td>Require stronger technical confirmation</td></tr></tbody></table></section>
+      <section class="card s12 pane hidden" id="next"><div class="label">Codex next step</div><p>Open the repo’s Agents/Codex tab and paste the full instructions in <b>CODEX_PROMPT.md</b>. Ask Codex to replace this static prototype with React + Vite + TypeScript frontend, FastAPI backend, mock fallback data, SEC filing risk adapter, and Railway deploy files.</p></section>
+    </section>
+    <div class="footer">Research and trade planning only. Not financial advice. No real trades are placed.</div>
+  </main>
+<script>
+const rows=[
+ {t:'INLF',s:'Panic Reversal',p:'0.0626',m:'+34.1%',r:'18.7x',score:86,setup:'Capitulation base + RSI curl',entry:'0.058–0.064',stop:'0.050',t1:'0.073 VWAP',t2:'0.085–0.10',notes:['Below VWAP: bounce trade only until reclaim.','Volume absorption is the bullish signal.','Avoid overnight unless it closes above VWAP.']},
+ {t:'DQ',s:'Don’t Dilute Me',p:'—',m:'Watch',r:'2.1x',score:78,setup:'Quality reversal watch',entry:'Higher low',stop:'Prior low',t1:'20EMA/VWAP',t2:'Range high',notes:['Needs current filings and balance sheet check.','Better quality bucket than INLF.']},
+ {t:'BTQ',s:'Early Explosion',p:'—',m:'Watch',r:'3.4x',score:74,setup:'Accumulation watch',entry:'Break/retest',stop:'Range low',t1:'First supply',t2:'Breakout extension',notes:['Valid only if volume expands.','Do not chase first candle.']},
+ {t:'GOVX',s:'Panic Reversal',p:'—',m:'Watch',r:'2.8x',score:69,setup:'Oversold watch',entry:'VWAP reclaim',stop:'Day low',t1:'Gap fill',t2:'Prior support',notes:['Needs short and filing review before size.']}
+];
+function cls(x){return x>=80?'a':x>=70?'b':'c'}
+function render(f=''){tbody.innerHTML='';rows.filter(x=>x.t.includes(f.toUpperCase())).forEach((x,i)=>{const tr=document.createElement('tr');tr.innerHTML=`<td>${i+1}</td><td><b>${x.t}</b></td><td>${x.s}</td><td>${x.p}</td><td class="green">${x.m}</td><td>${x.r}</td><td><span class="score ${cls(x.score)}">${x.score}</span></td><td>${x.setup}</td>`;tr.onclick=()=>select(x);tbody.appendChild(tr)})}
+function select(x){bestTicker.textContent=x.t;selName.textContent=x.t;selScore.textContent=x.score;convBar.style.width=x.score+'%';entry.textContent=x.entry;stop.textContent=x.stop;t1.textContent=x.t1;t2.textContent=x.t2;notes.innerHTML=x.notes.map(n=>`<div class="note">${n}</div>`).join('')}
+document.querySelectorAll('.tab').forEach(btn=>btn.onclick=()=>{document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.pane').forEach(p=>p.classList.add('hidden'));document.getElementById(btn.dataset.tab).classList.remove('hidden');if(btn.dataset.tab==='scanner')details.classList.remove('hidden')});
+filter.oninput=e=>render(e.target.value);render();select(rows[0]);setInterval(()=>clock.textContent='Demo mode • '+new Date().toLocaleTimeString(),1000);
+</script>
+</body>
+</html>
